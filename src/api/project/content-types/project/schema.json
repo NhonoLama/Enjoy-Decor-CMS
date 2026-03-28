@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "catalog": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::catalog.catalog",
+      "inversedBy": "projects"
+    },
+    "year": {
+      "type": "integer"
+    },
+    "location": {
+      "type": "string"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "large",
+        "wide",
+        "tall ",
+        "small"
+      ]
+    }
+  }
+}
