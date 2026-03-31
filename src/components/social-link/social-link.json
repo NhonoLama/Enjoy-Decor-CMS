@@ -6,13 +6,15 @@
   "options": {},
   "attributes": {
     "label": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "handler": {
       "type": "string"
     },
     "href": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "location_href": {
       "type": "string"

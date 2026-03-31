@@ -16,23 +16,31 @@
       "required": true
     },
     "country": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "required": true
     },
     "address": {
       "type": "string"
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 13,
+      "required": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "hours": {
       "type": "string",
       "default": "Sun – Fri, 9am – 6pm NPT"
     },
     "isHQ": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "order": {
       "type": "integer"

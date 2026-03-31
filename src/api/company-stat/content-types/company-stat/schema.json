@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "company_stats",
+  "info": {
+    "singularName": "company-stat",
+    "pluralName": "company-stats",
+    "displayName": "Company Stat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company_stats": {
+      "type": "component",
+      "component": "company-stats.company-stats",
+      "repeatable": true
+    }
+  }
+}

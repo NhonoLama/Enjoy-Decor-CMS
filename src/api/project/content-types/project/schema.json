@@ -12,7 +12,10 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20,
+      "required": true
     },
     "catalog": {
       "type": "relation",
@@ -24,7 +27,8 @@
       "type": "integer"
     },
     "location": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "img": {
       "type": "media",
@@ -41,6 +45,7 @@
     },
     "size": {
       "type": "enumeration",
+      "default": "small",
       "enum": [
         "large",
         "wide",
