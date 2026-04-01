@@ -572,6 +572,33 @@ export interface ApiContactInfoContactInfo extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactContact extends Struct.CollectionTypeSchema {
+  collectionName: 'contacts';
+  info: {
+    displayName: 'Contact';
+    pluralName: 'contacts';
+    singularName: 'contact';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact.contact'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOfficeOffice extends Struct.CollectionTypeSchema {
   collectionName: 'offices';
   info: {
@@ -1373,6 +1400,7 @@ declare module '@strapi/strapi' {
       'api::company-info.company-info': ApiCompanyInfoCompanyInfo;
       'api::company-stat.company-stat': ApiCompanyStatCompanyStat;
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
+      'api::contact.contact': ApiContactContact;
       'api::office.office': ApiOfficeOffice;
       'api::project.project': ApiProjectProject;
       'api::service-process-step.service-process-step': ApiServiceProcessStepServiceProcessStep;
