@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "why_us_reasons",
+  "info": {
+    "singularName": "why-us-reason",
+    "pluralName": "why-us-reasons",
+    "displayName": "Why Us Reason"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    }
+  }
+}
