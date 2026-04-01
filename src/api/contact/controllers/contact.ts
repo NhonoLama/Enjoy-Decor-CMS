@@ -1,8 +1,5 @@
-import { Strapi } from "@strapi/strapi";
-
 export default {
   send: async (ctx: any) => {
-    const strapi: Strapi = (global as any).strapi;
     const { name, email, phone, service, budget, message, subscribe } =
       ctx.request.body;
 
@@ -16,14 +13,14 @@ export default {
         from: process.env.SMTP_USER,
         replyTo: email,
         subject: `New Project Brief from ${name}`,
-        html: `...`, // keep your existing html
+        html: `...`, // your existing html
       });
 
       await strapi.plugins.email.services.email.send({
         to: email,
         from: process.env.SMTP_USER,
         subject: "We received your brief — Enjoy Decor",
-        html: `...`, // keep your existing html
+        html: `...`, // your existing html
       });
 
       return ctx.send({ ok: true });
