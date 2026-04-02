@@ -19,6 +19,7 @@
     },
     "title": {
       "type": "string",
+      "maxLength": 50,
       "required": true
     },
     "tagline": {
