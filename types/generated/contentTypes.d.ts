@@ -497,15 +497,12 @@ export interface ApiCompanyInfoCompanyInfo extends Struct.SingleTypeSchema {
         maxLength: 40;
         minLength: 2;
       }>;
-    phone_number: Schema.Attribute.BigInteger &
+    phone_number: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: '13';
-          min: '10';
-        },
-        string
-      >;
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 15;
+        minLength: 10;
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -593,6 +590,42 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
+  collectionName: 'hero_sections';
+  info: {
+    displayName: 'Hero Section';
+    pluralName: 'hero-sections';
+    singularName: 'hero-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cover_img: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+      Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<"We craft interiors that breathe personality into every corner \u2014 blending timeless elegance with modern living for spaces you'll never want to leave.">;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-section.hero-section'
+    > &
+      Schema.Attribute.Private;
+    project_name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Enjoy Decor'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1401,6 +1434,7 @@ declare module '@strapi/strapi' {
       'api::company-stat.company-stat': ApiCompanyStatCompanyStat;
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::contact.contact': ApiContactContact;
+      'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::office.office': ApiOfficeOffice;
       'api::project.project': ApiProjectProject;
       'api::service-process-step.service-process-step': ApiServiceProcessStepServiceProcessStep;

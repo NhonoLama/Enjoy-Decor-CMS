@@ -17,14 +17,14 @@
       "maxLength": 40,
       "required": true
     },
-    "phone_number": {
-      "type": "biginteger",
-      "required": true,
-      "min": "10",
-      "max": "13"
-    },
     "email": {
       "type": "email",
+      "required": true
+    },
+    "phone_number": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 15,
       "required": true
     }
   }
