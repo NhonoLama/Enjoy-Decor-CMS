@@ -30,7 +30,7 @@ export interface SocialLinkSocialLink extends Struct.ComponentSchema {
   attributes: {
     handler: Schema.Attribute.String;
     href: Schema.Attribute.String & Schema.Attribute.Required;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
+    platform: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 

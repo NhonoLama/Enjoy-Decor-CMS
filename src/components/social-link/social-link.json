@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "label": {
+    "platform": {
       "type": "string",
       "required": true
     },
