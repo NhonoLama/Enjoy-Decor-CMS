@@ -15,19 +15,6 @@
     "href": {
       "type": "string",
       "required": true
-    },
-    "location_href": {
-      "type": "string"
-    },
-    "location_img": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
     }
   },
   "config": {}

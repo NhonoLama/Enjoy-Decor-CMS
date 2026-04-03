@@ -473,7 +473,7 @@ export interface ApiCatalogCatalog extends Struct.CollectionTypeSchema {
 export interface ApiCompanyInfoCompanyInfo extends Struct.SingleTypeSchema {
   collectionName: 'company_infos';
   info: {
-    displayName: 'Company Infos';
+    displayName: 'Company Info';
     pluralName: 'company-infos';
     singularName: 'company-info';
   };
@@ -497,6 +497,8 @@ export interface ApiCompanyInfoCompanyInfo extends Struct.SingleTypeSchema {
         maxLength: 40;
         minLength: 2;
       }>;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     phone_number: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -535,34 +537,6 @@ export interface ApiCompanyStatCompanyStat extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiContactInfoContactInfo extends Struct.SingleTypeSchema {
-  collectionName: 'contact_infos';
-  info: {
-    displayName: 'Contact Info';
-    pluralName: 'contact-infos';
-    singularName: 'contact-info';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::contact-info.contact-info'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    socials: Schema.Attribute.Component<'social-link.social-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -793,6 +767,34 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 50;
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSocialLinkSocialLink extends Struct.SingleTypeSchema {
+  collectionName: 'social_links';
+  info: {
+    displayName: 'Social Link';
+    pluralName: 'social-links';
+    singularName: 'social-link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-link.social-link'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    social_links: Schema.Attribute.Component<'social-link.social-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1436,13 +1438,13 @@ declare module '@strapi/strapi' {
       'api::catalog.catalog': ApiCatalogCatalog;
       'api::company-info.company-info': ApiCompanyInfoCompanyInfo;
       'api::company-stat.company-stat': ApiCompanyStatCompanyStat;
-      'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::contact.contact': ApiContactContact;
       'api::hero-section.hero-section': ApiHeroSectionHeroSection;
       'api::office.office': ApiOfficeOffice;
       'api::project.project': ApiProjectProject;
       'api::service-process-step.service-process-step': ApiServiceProcessStepServiceProcessStep;
       'api::service.service': ApiServiceService;
+      'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::why-us-reason.why-us-reason': ApiWhyUsReasonWhyUsReason;

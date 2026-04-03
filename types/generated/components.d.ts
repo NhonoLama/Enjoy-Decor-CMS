@@ -31,10 +31,6 @@ export interface SocialLinkSocialLink extends Struct.ComponentSchema {
     handler: Schema.Attribute.String;
     href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
-    location_href: Schema.Attribute.String;
-    location_img: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
   };
 }
 
