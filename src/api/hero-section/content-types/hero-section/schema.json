@@ -21,7 +21,7 @@
       "default": "We craft interiors that breathe personality into every corner — blending timeless elegance with modern living for spaces you'll never want to leave.",
       "required": true
     },
-    "cover_img": {
+    "cover_media": {
       "type": "media",
       "multiple": false,
       "required": true,

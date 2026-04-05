@@ -581,7 +581,7 @@ export interface ApiHeroSectionHeroSection extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    cover_img: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
+    cover_media: Schema.Attribute.Media<'images' | 'files' | 'videos'> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -664,10 +664,10 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   };
   attributes: {
     catalog: Schema.Attribute.Relation<'manyToOne', 'api::catalog.catalog'>;
+    cover_media: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -675,6 +675,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     location: Schema.Attribute.String & Schema.Attribute.Required;
+    medias: Schema.Attribute.Media<'images' | 'files' | 'videos', true>;
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     size: Schema.Attribute.Enumeration<['large', 'wide', 'tall ', 'small']> &

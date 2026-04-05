@@ -30,14 +30,13 @@
       "type": "string",
       "required": true
     },
-    "img": {
+    "cover_media": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images",
         "files",
-        "videos",
-        "audios"
+        "videos"
       ]
     },
     "order": {
@@ -51,6 +50,15 @@
         "wide",
         "tall ",
         "small"
+      ]
+    },
+    "medias": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
       ]
     }
   }
