@@ -484,7 +484,7 @@ export interface ApiCompanyInfoCompanyInfo extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    email: Schema.Attribute.Email;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -497,6 +497,7 @@ export interface ApiCompanyInfoCompanyInfo extends Struct.SingleTypeSchema {
         maxLength: 40;
         minLength: 2;
       }>;
+    location_link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required;
     phone_number: Schema.Attribute.String &
@@ -638,6 +639,7 @@ export interface ApiOfficeOffice extends Struct.CollectionTypeSchema {
       'api::office.office'
     > &
       Schema.Attribute.Private;
+    location_link: Schema.Attribute.String;
     order: Schema.Attribute.Integer;
     phone: Schema.Attribute.String &
       Schema.Attribute.Required &

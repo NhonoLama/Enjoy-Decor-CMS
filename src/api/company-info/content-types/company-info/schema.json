@@ -19,7 +19,7 @@
     },
     "email": {
       "type": "email",
-      "required": true
+      "required": false
     },
     "phone_number": {
       "type": "string",
@@ -35,6 +35,9 @@
         "images",
         "files"
       ]
+    },
+    "location_link": {
+      "type": "string"
     }
   }
 }
